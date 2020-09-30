@@ -29,7 +29,7 @@ export default {
       e.preventDefault();
 
       try {
-        const response = await axios.get('http://localhost:3000/api/links', { params: { word: this.wordToSearch } });
+        const response = await axios.get('/api/links', { params: { word: this.wordToSearch } });
         const { linkDataArray, nodeDataArray } = response.data;
         this.$emit('emitEventBuildGraph', { linkDataArray, nodeDataArray });
         this.$emit('emitEventLoading');
