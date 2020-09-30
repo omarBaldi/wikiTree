@@ -22,6 +22,9 @@ export default {
       wordToSearch: null
     }
   },
+  created() {
+    console.log(`Working in the ${process.env.NODE_ENV} environment`)
+  },
   methods: {
     async startScraping(e) {
 
