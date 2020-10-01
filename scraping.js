@@ -17,7 +17,7 @@ async function startScraping(URLS) {
         isFirstTime = false;
         linkDataArray = new Array();
         nodeDataArray = new Array({ key: index, text: URLS[0].text });
-        browser = await puppeteer.launch();
+        browser = await puppeteer.launch({ headless: false, args: ['--no-sandbox'] });
     };
 
     currentLinksToSearch = new Array();
