@@ -1,5 +1,6 @@
 const puppeteer = require('puppeteer');
 
+
 const maxTime = 2;
 let time;
 let currentLinksToSearch;
