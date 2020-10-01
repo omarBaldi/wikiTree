@@ -16,8 +16,9 @@ app.get('/api/links', async(req, res) => {
     //Express time limit for request is 2 min. This override this little problem
     req.setTimeout(0); 
 
+    const wordToSearch = req.query.word;
     const baseURL = 'https://en.wikipedia.org/wiki';
-    const startPoint = [{ text: 'Dog', href: `${baseURL}/Dog` }];
+    const startPoint = [{ text: wordToSearch, href: `${baseURL}/${wordToSearch}` }];
 
     try {
         const { nodeDataArray, linkDataArray } = await startScraping(startPoint);

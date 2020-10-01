@@ -4,6 +4,7 @@
     <Menu 
       @emitEventLoading="changeLoaderState" 
       @emitEventBuildGraph="buildGraph"
+      @emitEventDestroyDOM="destroyDOM"
     />
 
     <Loader 
@@ -12,6 +13,8 @@
 
     <Chart 
       :chartData="ChartData"
+      :destroy="destroy"
+      @changeDestroyValue="destroyDOM"
     />
     
   </div>
@@ -32,6 +35,7 @@ export default {
   data() {
     return {
       showLoader: false,
+      destroy: false,
       ChartData: null
     }
   },
@@ -41,6 +45,9 @@ export default {
     },
     buildGraph(data) {
       this.ChartData = data;
+    },
+    destroyDOM() {
+      this.destroy = !this.destroy;
     }
   }
 }

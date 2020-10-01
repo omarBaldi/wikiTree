@@ -28,8 +28,10 @@ export default {
   methods: {
     async startScraping(e) {
 
-      this.$emit('emitEventLoading');
       e.preventDefault();
+
+      this.$emit('emitEventDestroyDOM');
+      this.$emit('emitEventLoading');
 
       try {
         const response = await axios.get('/api/links', { params: { word: this.wordToSearch } });
@@ -54,9 +56,14 @@ export default {
     height: 70px;
     background-color: #1e90ff;
   }
-  input {
+  .nav-wrapper .input-field input[type=search] {
     text-align: center;
     text-transform: uppercase;
     letter-spacing: 2px;
+    margin-left: -55px;
+    width: 100vw;
+  }
+  .material-icons {
+    margin-top: 5px;
   }
 </style>

@@ -10,13 +10,19 @@ export default {
   props: {
     chartData: {
       type: Object
+    },
+    destroy: {
+      type: Boolean
     }
   },
   watch: {
     chartData() {
-      this.destroyGraphContainer();
       this.createGraphContainer();
       this.createGraph();
+      this.$emit('changeDestroyValue');
+    },
+    destroy(value) {
+      if (value) this.destroyGraphContainer();
     }
   },
   methods: {

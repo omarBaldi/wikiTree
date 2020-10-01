@@ -1,7 +1,6 @@
 const puppeteer = require('puppeteer');
 
-
-const maxTime = 2;
+const maxTime = 3;
 let time;
 let currentLinksToSearch;
 let isFirstTime = true;
@@ -18,7 +17,7 @@ async function startScraping(URLS) {
         isFirstTime = false;
         linkDataArray = new Array();
         nodeDataArray = new Array({ key: index, text: URLS[0].text });
-        browser = await puppeteer.launch({ headless: false, args: ['--no-sandbox'] });
+        browser = await puppeteer.launch({ args: ['--no-sandbox'] });
     };
 
     currentLinksToSearch = new Array();
